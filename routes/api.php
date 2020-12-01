@@ -33,12 +33,14 @@ Route::namespace('Api')->group(function() {
         Route::apiResource('roles', 'RoleController')->middleware('permission:' . Acl::PERMISSION_PERMISSION_MANAGE);
         Route::apiResource('users', 'UserController')->middleware('permission:' . Acl::PERMISSION_USER_MANAGE);
         Route::apiResource('permissions', 'PermissionController')->middleware('permission:' . Acl::PERMISSION_PERMISSION_MANAGE);
+//        Route::apiResource('categories', 'CategoryController');
 
         // Custom routes
         Route::put('users/{user}', 'UserController@update');
         Route::get('users/{user}/permissions', 'UserController@permissions')->middleware('permission:' . Acl::PERMISSION_PERMISSION_MANAGE);
         Route::put('users/{user}/permissions', 'UserController@updatePermissions')->middleware('permission:' .Acl::PERMISSION_PERMISSION_MANAGE);
         Route::get('roles/{role}/permissions', 'RoleController@permissions')->middleware('permission:' . Acl::PERMISSION_PERMISSION_MANAGE);
+
     });
 });
 
@@ -147,3 +149,22 @@ Route::get('articles/{id}/pageviews', function ($id) {
 
     return response()->json(new JsonResponse(['pvData' => $data]));
 });
+
+Route::apiResource('categories', 'CategoryController');
+Route::apiResource('banks', 'BankController');
+Route::apiResource('employees', 'EmployeeController');
+Route::apiResource('app_settings', 'AppSettingController');
+Route::apiResource('crashed_items', 'CrashedItemController');
+Route::apiResource('godowns', 'GodownController');
+Route::apiResource('items', 'ItemController');
+Route::apiResource('people', 'PersonController');
+Route::apiResource('purchases', 'PurchaseController');
+Route::apiResource('purchased_items', 'PurchasedItemController');
+Route::apiResource('purposes', 'PurposeController');
+Route::apiResource('received_items', 'ReceivedItemController');
+Route::apiResource('sales', 'SaleController');
+Route::apiResource('sale_items', 'SaleItemController');
+Route::apiResource('stocks', 'StockController');
+Route::apiResource('store_accounts', 'StoreAccountController');
+Route::apiResource('transactions', 'TransactionController');
+Route::apiResource('types', 'TypeController');

@@ -39,9 +39,7 @@ module.exports = {
     'eol-last': 2,
     'eqeqeq': ["error", "always", {"null": "ignore"}],
     'handle-callback-err': [2, '^(err|error)$'],
-    'indent': [2, 2, {
-      'SwitchCase': 1
-    }],
+    'indent': "off",
     'jsx-quotes': [2, 'prefer-single'],
     'key-spacing': [2, {
       'beforeColon': false,

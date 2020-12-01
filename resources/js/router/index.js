@@ -15,13 +15,13 @@ import Layout from '@/layout';
 /* Router for modules */
 import elementUiRoutes from './modules/element-ui';
 import componentRoutes from './modules/components';
-import chartsRoutes from './modules/charts';
+// import chartsRoutes from './modules/charts';
 import tableRoutes from './modules/table';
 import adminRoutes from './modules/admin';
-import nestedRoutes from './modules/nested';
-import errorRoutes from './modules/error';
-import excelRoutes from './modules/excel';
-import permissionRoutes from './modules/permission';
+// import nestedRoutes from './modules/nested';
+// import errorRoutes from './modules/error';
+// import excelRoutes from './modules/excel';
+// import permissionRoutes from './modules/permission';
 
 /**
  * Sub-menu only appear when children.length>=1
@@ -92,142 +92,298 @@ export const constantRoutes = [
       },
     ],
   },
-  {
-    path: '/documentation',
-    component: Layout,
-    redirect: '/documentation/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/documentation/index'),
-        name: 'Documentation',
-        meta: { title: 'documentation', icon: 'documentation', noCache: true },
-      },
-    ],
-  },
-  {
-    path: '/profile',
-    component: Layout,
-    redirect: '/profile/edit',
-    children: [
-      {
-        path: 'edit',
-        component: () => import('@/views/users/SelfProfile'),
-        name: 'SelfProfile',
-        meta: { title: 'userProfile', icon: 'user', noCache: true },
-      },
-    ],
-  },
-  {
-    path: '/guide',
-    component: Layout,
-    redirect: '/guide/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/guide/index'),
-        name: 'Guide',
-        meta: { title: 'guide', icon: 'guide', noCache: true },
-      },
-    ],
-  },
+  // {
+  //   path: '/documentation',
+  //   component: Layout,
+  //   redirect: '/documentation/index',
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/documentation/index'),
+  //       name: 'Documentation',
+  //       meta: { title: 'documentation', icon: 'documentation', noCache: true },
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: '/profile',
+  //   component: Layout,
+  //   redirect: '/profile/edit',
+  //   children: [
+  //     {
+  //       path: 'edit',
+  //       component: () => import('@/views/users/SelfProfile'),
+  //       name: 'SelfProfile',
+  //       meta: { title: 'userProfile', icon: 'user', noCache: true },
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: '/guide',
+  //   component: Layout,
+  //   redirect: '/guide/index',
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/guide/index'),
+  //       name: 'Guide',
+  //       meta: { title: 'guide', icon: 'guide', noCache: true },
+  //     },
+  //   ],
+  // },
   elementUiRoutes,
 ];
 
 export const asyncRoutes = [
-  permissionRoutes,
+  // permissionRoutes,
   componentRoutes,
-  chartsRoutes,
-  nestedRoutes,
+  // chartsRoutes,
+  // nestedRoutes,
   tableRoutes,
   adminRoutes,
   {
-    path: '/theme',
+    path: '/people',
     component: Layout,
     redirect: 'noredirect',
     children: [
       {
         path: 'index',
-        component: () => import('@/views/theme/index'),
-        name: 'Theme',
-        meta: { title: 'theme', icon: 'theme' },
+        // component: () => import('@/views/people/List'),
+        name: 'People',
+        meta: { title: 'People', icon: 'peoples' },
       },
     ],
   },
   {
-    path: '/clipboard',
+    path: '/items',
     component: Layout,
     redirect: 'noredirect',
-    meta: { permissions: ['view menu clipboard'] },
     children: [
       {
         path: 'index',
-        component: () => import('@/views/clipboard/index'),
-        name: 'ClipboardDemo',
-        meta: { title: 'clipboardDemo', icon: 'clipboard', roles: ['admin', 'manager', 'editor', 'user'] },
-      },
-    ],
-  },
-  errorRoutes,
-  excelRoutes,
-  {
-    path: '/zip',
-    component: Layout,
-    redirect: '/zip/download',
-    alwaysShow: true,
-    meta: { title: 'zip', icon: 'zip', permissions: ['view menu zip'] },
-    children: [
-      {
-        path: 'download',
-        component: () => import('@/views/zip'),
-        name: 'ExportZip',
-        meta: { title: 'exportZip' },
+        // component: () => import('@/views/items/List'),
+        name: 'Items',
+        meta: { title: 'Items', icon: 'bug' },
       },
     ],
   },
   {
-    path: '/pdf',
+    path: '/purchases',
     component: Layout,
-    redirect: '/pdf/index',
-    meta: { title: 'pdf', icon: 'pdf', permissions: ['view menu pdf'] },
+    redirect: 'noredirect',
     children: [
       {
         path: 'index',
-        component: () => import('@/views/pdf'),
-        name: 'Pdf',
-        meta: { title: 'pdf' },
+        // component: () => import('@/views/purchases/List'),
+        name: 'Purchase',
+        meta: { title: 'Purchase', icon: 'star' },
       },
     ],
   },
   {
-    path: '/pdf/download',
-    component: () => import('@/views/pdf/Download'),
-    hidden: true,
-  },
-  {
-    path: '/i18n',
+    path: '/sales',
     component: Layout,
-    meta: { permissions: ['view menu i18n'] },
+    redirect: 'noredirect',
     children: [
       {
         path: 'index',
-        component: () => import('@/views/i18n'),
-        name: 'I18n',
-        meta: { title: 'i18n', icon: 'international' },
+        // component: () => import('@/views/sales/List'),
+        name: 'Sale',
+        meta: { title: 'Sale', icon: 'shopping' },
       },
     ],
   },
   {
-    path: '/external-link',
+    path: '/crashed_items',
     component: Layout,
+    redirect: 'noredirect',
     children: [
       {
-        path: 'https://github.com/tuandm/laravue',
-        meta: { title: 'externalLink', icon: 'link' },
+        path: 'index',
+        // component: () => import('@/views/crashed_items/List'),
+        name: 'Crash Item',
+        meta: { title: 'Crash Item', icon: 'tree' },
       },
     ],
   },
-  { path: '*', redirect: '/404', hidden: true },
+  {
+    path: '/purposes',
+    component: Layout,
+    redirect: 'noredirect',
+    children: [
+      {
+        path: 'index',
+        // component: () => import('@/views/purposes/List'),
+        name: 'Purposes',
+        meta: { title: 'Purposes', icon: 'example' },
+      },
+    ],
+  },
+  {
+    path: '/transactions',
+    component: Layout,
+    redirect: 'noredirect',
+    children: [
+      {
+        path: 'index',
+        // component: () => import('@/views/transactions/List'),
+        name: 'Transactions',
+        meta: { title: 'Transactions', icon: 'dollar' },
+      },
+    ],
+  },
+  {
+    path: '/banks',
+    component: Layout,
+    redirect: 'noredirect',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/banks/List'),
+        name: 'Banks',
+        meta: { title: 'Banks', icon: 'password' },
+      },
+    ],
+  },
+  {
+    path: '/employees',
+    component: Layout,
+    redirect: 'noredirect',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/employees/List'),
+        name: 'Employees',
+        meta: { title: 'Employees', icon: 'people' },
+      },
+    ],
+  },
+  {
+    path: '/godowns',
+    component: Layout,
+    redirect: 'noredirect',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/godowns/List'),
+        name: 'Godowns',
+        meta: { title: 'Godowns', icon: 'table' },
+      },
+    ],
+  },
+  {
+    path: '/reports',
+    component: Layout,
+    redirect: 'noredirect',
+    children: [
+      {
+        path: 'index',
+        // component: () => import('@/views/reports/List'),
+        name: 'Reports',
+        meta: { title: 'Reports', icon: 'skill' },
+      },
+    ],
+  },
+  {
+    path: '/app_settings',
+    component: Layout,
+    redirect: 'noredirect',
+    children: [
+      {
+        path: 'index',
+        // component: () => import('@/views/app_settings/List'),
+        name: 'App Config',
+        meta: { title: 'App Config', icon: 'admin' },
+      },
+    ],
+  },
+  // {
+  //   path: '/theme',
+  //   component: Layout,
+  //   redirect: 'noredirect',
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/theme/index'),
+  //       name: 'Theme',
+  //       meta: { title: 'theme', icon: 'theme' },
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: '/clipboard',
+  //   component: Layout,
+  //   redirect: 'noredirect',
+  //   meta: { permissions: ['view menu clipboard'] },
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/clipboard/index'),
+  //       name: 'ClipboardDemo',
+  //       meta: { title: 'clipboardDemo', icon: 'clipboard', roles: ['admin', 'manager', 'editor', 'user'] },
+  //     },
+  //   ],
+  // },
+  // errorRoutes,
+  // excelRoutes,
+  // {
+  //   path: '/zip',
+  //   component: Layout,
+  //   redirect: '/zip/download',
+  //   alwaysShow: true,
+  //   meta: { title: 'zip', icon: 'zip', permissions: ['view menu zip'] },
+  //   children: [
+  //     {
+  //       path: 'download',
+  //       component: () => import('@/views/zip'),
+  //       name: 'ExportZip',
+  //       meta: { title: 'exportZip' },
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: '/pdf',
+  //   component: Layout,
+  //   redirect: '/pdf/index',
+  //   meta: { title: 'pdf', icon: 'pdf', permissions: ['view menu pdf'] },
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/pdf'),
+  //       name: 'Pdf',
+  //       meta: { title: 'pdf' },
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: '/pdf/download',
+  //   component: () => import('@/views/pdf/Download'),
+  //   hidden: true,
+  // },
+  // {
+  //   path: '/i18n',
+  //   component: Layout,
+  //   meta: { permissions: ['view menu i18n'] },
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/i18n'),
+  //       name: 'I18n',
+  //       meta: { title: 'i18n', icon: 'international' },
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: '/external-link',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'https://github.com/tuandm/laravue',
+  //       meta: { title: 'externalLink', icon: 'link' },
+  //     },
+  //   ],
+  // },
+  // { path: '*', redirect: '/404', hidden: true },
 ];
 
 const createRouter = () => new Router({

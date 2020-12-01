@@ -198,4 +198,11 @@ export default {
       visitor: 'Visitor. Have access to static pages, should not have any writable permission',
     },
   },
+  employee: {
+    'emp_type': 'Employee Type',
+    // 'password': 'Password',
+    // 'confirmPassword': 'Confirm password',
+    'name': 'Name',
+    'salary': 'Salary',
+  },
 };

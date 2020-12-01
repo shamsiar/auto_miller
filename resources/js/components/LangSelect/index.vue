@@ -4,18 +4,21 @@
       <svg-icon class-name="international-icon" icon-class="language" />
     </div>
     <el-dropdown-menu slot="dropdown">
-      <el-dropdown-item :disabled="language==='vi'" command="vi">
-        Tiếng Việt
-      </el-dropdown-item>
+      <!--      <el-dropdown-item :disabled="language==='vi'" command="vi">-->
+      <!--        Tiếng Việt-->
+      <!--      </el-dropdown-item>-->
       <el-dropdown-item :disabled="language==='en'" command="en">
         English
       </el-dropdown-item>
-      <el-dropdown-item :disabled="language==='zh'" command="zh">
-        中文
+      <el-dropdown-item :disabled="language==='bn'" command="bn">
+        বাংলা
       </el-dropdown-item>
-      <el-dropdown-item :disabled="language==='ru'" command="ru">
-        Русский
-      </el-dropdown-item>
+      <!--      <el-dropdown-item :disabled="language==='zh'" command="zh">-->
+      <!--        中文-->
+      <!--      </el-dropdown-item>-->
+      <!--      <el-dropdown-item :disabled="language==='ru'" command="ru">-->
+      <!--        Русский-->
+      <!--      </el-dropdown-item>-->
     </el-dropdown-menu>
   </el-dropdown>
 </template>
@@ -41,10 +44,10 @@ export default {
 </script>
 
 <style scoped>
-.international-icon {
-  font-size: 20px;
-  cursor: pointer;
-  vertical-align: -5px!important;
-}
+    .international-icon {
+        font-size: 20px;
+        cursor: pointer;
+        vertical-align: -5px !important;
+    }
 </style>
 
