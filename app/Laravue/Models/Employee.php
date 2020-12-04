@@ -30,7 +30,7 @@ class Employee extends Model
         'name',
         'emp_type',
         'salary',
-        'status'
+//        'status'
     ];
 
     /**

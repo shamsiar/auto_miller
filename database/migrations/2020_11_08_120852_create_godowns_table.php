@@ -15,8 +15,8 @@ class CreateGodownsTable extends Migration
     public function up() {
         Schema::create( 'godowns', function ( Blueprint $table ) {
             $table->increments( 'id' );
-            $table->string( ''name'', 191);
-			$table->string( ''location'', 191)->index( 'location' );
+            $table->string( 'name', 191);
+			$table->string( 'location', 191)->index( 'location' );
 			$table->boolean( 'status' );
 		} );
     }
